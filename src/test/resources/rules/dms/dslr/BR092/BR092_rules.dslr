@@ -1,0 +1,112 @@
+package uk.gov.hmrc.cars.dms.rules.dslr.BR092
+
+expander validationResult-BR092.dsl
+
+import uk.gov.hmrc.cars.dms.domain.ConsignmentShipment;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Consignor physical address validations
+// ─────────────────────────────────────────────────────────────────────────────
+
+rule "BR092_205"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Consignment shipment exists
+        - where consignor physical address street and number is not free text between 1 to 35 characters
+then
+    Emit BR092 validation error for consignment shipment consignor physical address street and number
+end
+
+rule "BR092_206"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Consignment shipment exists
+        - where consignor physical address country code is not alphabetic length 2
+then
+    Emit BR092 validation error for consignment shipment consignor physical address country code
+end
+
+rule "BR092_207"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Consignment shipment exists
+        - where consignor physical address city name is not free text between 1 to 35 characters
+then
+    Emit BR092 validation error for consignment shipment consignor physical address city name
+end
+
+rule "BR092_208"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Consignment shipment exists
+        - where consignor physical address zip code is not alphanumeric length 9
+then
+    Emit BR092 validation error for consignment shipment consignor physical address zip code
+end
+
+rule "BR092_209"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Consignment shipment exists
+        - where consignor party name is not free text between 1 to 70 characters
+then
+    Emit BR092 validation error for consignment shipment consignor party name
+end
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Consignee validations
+// ─────────────────────────────────────────────────────────────────────────────
+
+rule "BR092_210"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Consignment shipment exists
+        - where consignee physical address street and number is not free text between 1 to 35 characters
+then
+    Emit BR092 validation error for consignment shipment consignee physical address street and number
+end
+
+rule "BR092_211"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Consignment shipment exists
+        - where consignee party identification number is missing
+then
+    Emit BR092 validation error for consignment shipment consignee party identification number
+end
+
+rule "BR092_212"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Consignment shipment exists
+        - where consignee street and number is not free text between 1 to 35 characters
+then
+    Emit BR092 validation error for consignment shipment consignee street and number
+end
+
+rule "BR092_213"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Consignment shipment exists
+        - where consignee party name is not free text between 1 to 70 characters
+then
+    Emit BR092 validation error for consignment shipment consignee party name
+end

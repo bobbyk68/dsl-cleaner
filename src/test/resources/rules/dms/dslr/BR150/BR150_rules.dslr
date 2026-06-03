@@ -1,0 +1,38 @@
+package uk.gov.hmrc.cars.dms.rules.dslr.BR150
+
+expander validationResult-BR150.dsl
+
+import uk.gov.hmrc.cars.dms.domain.Declaration;
+
+rule "BR150_001"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Declaration exists
+        - where total gross mass is missing
+then
+    Emit BR150 validation error for declaration header total gross mass
+end
+
+rule "BR150_002"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Declaration exists
+        - where reference number is not alphanumeric length 22
+then
+    Emit BR150 validation error for declaration header reference number
+end
+
+rule "BR150_003"
+@ErrorCode("DMS10010")
+@declarationType("all")
+@procedureCategory("B1,B2,B4,C1")
+when
+    Declaration exists
+        - where customs office of presentation is missing
+then
+    Emit BR150 validation error for declaration header customs office of presentation
+end
