@@ -1,0 +1,28 @@
+DSL Cleaner Report
+Generated : 2026-06-03 16:51:32
+Root      : src/test/resources/rules/dms
+======================================================================
+
+[BR092] validationResult-BR092.dsl
+  DSL file  : src/test/resources/rules/dms/dsl/validationResult-BR092.dsl
+  DSLR file : src/test/resources/rules/dms/dslr/BR092/BR092_rules.dslr
+  Total     : 11
+  In use    : 9
+  Unused    : 2
+  Entries removed:
+    - Emit BR092 validation error for consignment shipment consignor physical address region
+    - Emit BR092 validation error for consignment shipment consignee email address
+  Cleaned file: validationResult-BR092.dsl.cleaned
+
+[BR150] validationResult-BR150.dsl
+  DSL file  : src/test/resources/rules/dms/dsl/validationResult-BR150.dsl
+  DSLR file : src/test/resources/rules/dms/dslr/BR150/BR150_rules.dslr
+  Total     : 4
+  In use    : 3
+  Unused    : 1
+  Entries removed:
+    - Emit BR150 validation error for declaration header transport document number
+  Cleaned file: validationResult-BR150.dsl.cleaned
+
+======================================================================
+Total unused entries removed: 3
